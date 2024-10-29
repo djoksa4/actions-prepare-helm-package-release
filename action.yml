@@ -1,0 +1,20 @@
+name: "Prepare Helm package release"
+description: "Prepare Helm packages and associated index.yaml files for releases"
+author: "Djordje Vodovar"
+
+inputs:
+  source-dir:
+    description: "Helm package source directory"
+    required: true
+    default: "src"
+  destination-dir:
+    description: "Helm package destination directory"
+    required: true
+    default: "dest"
+  destination-branch:
+    description: "Branch to which the Helm package will be pushed"
+    required: true
+
+runs:
+  using: "node20"
+  main: "dist/index.js"

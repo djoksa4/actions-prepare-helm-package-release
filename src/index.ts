@@ -4,7 +4,7 @@ import { execSync } from "child_process";
 import * as fs from 'fs';
 import * as path from 'path';
 
-async function run(): Promise<void> {
+export async function run(): Promise<void> {
 
     const sourceDir: string = getInput('source-dir');
     const destinationDir: string = getInput('destination-dir');
@@ -92,4 +92,6 @@ async function run(): Promise<void> {
     }
 }
 
-run();
+if (!process.env.JEST_WORKER_ID){
+    run();
+}
